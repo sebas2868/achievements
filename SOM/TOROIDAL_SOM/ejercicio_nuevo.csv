@@ -1,0 +1,16 @@
+Ejercicio,Bench Press,Bicep Curl,Bicycle Crunch,Bulgarian Split Squat,Burpee,Cable Row,Calf Raise,Chest Fly,Deadlift,Decline Push-up,Dips,Handstand Push-up,Incline Push-up,Jumping Jacks,Lat Pulldown,Leg Curl,Leg Press,Leg Raise,Lunge,Mountain Climbers,Pistol Squat,Plank,Pull-up,Push-up,Russian Twist,Shoulder Press,Sit-up,Squat,Tricep Extension,Diamond Push-up,Press Frances
+Cardio,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Peso Corporal,0,0,1,0,1,0,0,0,0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,0,1,0,0,1,0
+Alta Intensidad,1,0,0,1,1,0,0,1,1,1,1,1,1,0,0,0,1,0,1,1,1,0,1,1,0,1,0,1,0,1,0
+Baja Intensidad,0,1,1,0,0,1,1,0,0,0,0,0,0,1,1,1,0,1,0,0,0,1,0,0,1,0,1,0,1,0,1
+Hipertrofia,1,1,0,1,0,1,1,1,0,1,0,0,1,0,1,1,1,0,1,0,0,0,0,0,0,0,0,1,1,0,1
+Fuerza,1,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,1,0,1,1,0,1,0,1,0,1,1
+Compuestos,0,0,1,1,0,1,0,0,0,1,1,1,1,0,0,0,1,0,1,1,0,1,1,1,1,1,1,0,0,1,0
+Multiarticular,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+Aislados,0,1,0,0,0,1,1,1,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1
+Pecho,1,0,0,0,0,0,0,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Tren Superior,1,1,0,0,0,1,0,1,1,1,1,1,1,0,1,0,0,0,0,0,0,0,1,1,0,1,0,0,1,1,1
+Empuje,1,0,0,0,0,0,0,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1
+Jale,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+Core,0,0,1,0,1,0,0,0,1,0,0,0,0,1,0,0,0,1,0,1,0,1,1,1,1,0,1,1,0,0,0
+Pierna,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,1,1,0,1,0,1,0,0,0,0,0,0,1,0,0,0
