@@ -1,2 +1,2 @@
 
-[![Video Title](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=(https://www.youtube.com/watch?v=kxFbESlkv54&ab_channel=SEBASTIANGRAJALESPULGARIN))
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=OnpzmBJPt8U&ab_channel=SEBASTIANGRAJALESPULGARIN)
