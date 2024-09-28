@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="gripper_urdf2">
+  <link
+    name="base_gripper">
+    <inertial>
+      <origin
+        xyz="0.000606169402433687 2.04420695852729E-17 0.015"
+        rpy="0 0 0" />
+      <mass
+        value="0.0478722592398715" />
+      <inertia
+        ixx="7.69716512578436E-06"
+        ixy="-9.37486869699441E-20"
+        ixz="1.06559806744992E-21"
+        iyy="1.30590028197231E-05"
+        iyz="-1.23555318593539E-24"
+        izz="1.39491207382402E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/base_gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/base_gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="acople_gripper">
+    <inertial>
+      <origin
+        xyz="0.0376794446386693 -0.012129886888081 -0.000942447786351648"
+        rpy="0 0 0" />
+      <mass
+        value="0.0545710394235731" />
+      <inertia
+        ixx="1.79970245965979E-05"
+        ixy="-5.48604610700076E-08"
+        ixz="-8.98113759433479E-11"
+        iyy="1.09326944441447E-05"
+        iyz="-1.65977131839693E-09"
+        izz="1.45057926599939E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/acople_gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/acople_gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="acople_gripper_joint"
+    type="revolute">
+    <origin
+      xyz="0.01 0 0.015"
+      rpy="-1.5708 -0.36327 0" />
+    <parent
+      link="base_gripper" />
+    <child
+      link="acople_gripper" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.28318530718" 
+      upper="6.28318530718"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="motor_gripper">
+    <inertial>
+      <origin
+        xyz="-1.8845602162143E-15 -1.04083408558608E-17 0.00870588559690423"
+        rpy="0 0 0" />
+      <mass
+        value="0.00125663706143592" />
+      <inertia
+        ixx="3.30914426178124E-08"
+        ixy="6.93668537069047E-26"
+        ixz="-2.24082599258384E-23"
+        iyy="3.30914426178124E-08"
+        iyz="-1.57164316385075E-23"
+        izz="6.28318530717958E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/motor_gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/motor_gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="motor_gripper_joint"
+    type="revolute">
+    <origin
+      xyz="0.046294 -0.004 -0.001"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="acople_gripper" />
+    <child
+      link="motor_gripper" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="2.072" 
+      upper="6.28318530718"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="deslizador_der">
+    <inertial>
+      <origin
+        xyz="-7.41394471716061E-05 0.00279403686780476 -0.000584520983332532"
+        rpy="0 0 0" />
+      <mass
+        value="0.00251429845000548" />
+      <inertia
+        ixx="7.05185536166649E-08"
+        ixy="-3.36362650599211E-12"
+        ixz="-8.49231889042195E-11"
+        iyy="3.40300390349939E-07"
+        iyz="-4.22530965475476E-22"
+        izz="3.04794641379609E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/deslizador_der.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/deslizador_der.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="deslizador_der_joint"
+    type="prismatic">
+    <origin
+      xyz="0.058 -0.00386 -0.0332"
+      rpy="3.1416 0 1.5708" />
+    <parent
+      link="acople_gripper" />
+    <child
+      link="deslizador_der" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1"
+      upper="0.1"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+    <mimic
+      joint="motor_gripper_joint"
+      multiplier="0.001"
+      offset="0" />
+  </joint>
+  <link
+    name="gripper_der">
+    <inertial>
+      <origin
+        xyz="0.106628516471386 -0.00646849082372854 -6.1249999999893E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0278026437083291" />
+      <inertia
+        ixx="3.53548664848273E-06"
+        ixy="9.07766869525606E-06"
+        ixz="-4.12716235973057E-21"
+        iyy="7.95198212423339E-05"
+        iyz="6.31419499585852E-22"
+        izz="8.09512707710094E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/gripper_der.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/gripper_der.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_der_joint"
+    type="revolute">
+    <origin
+      xyz="6.25E-05 0.006 0"
+      rpy="1.5708 -0.17453 1.5708" />
+    <parent
+      link="deslizador_der" />
+    <child
+      link="gripper_der" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-6.28318530718" 
+      upper="6.28318530718"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+    <mimic
+      joint="deslizador_der_joint"
+      multiplier="-462"
+      offset="1.1873" />
+  </joint>
+  <link
+    name="deslizador_izq">
+    <inertial>
+      <origin
+        xyz="7.73843662802975E-05 0.00279403686780473 0.0005768734044043"
+        rpy="0 0 0" />
+      <mass
+        value="0.00251429845000548" />
+      <inertia
+        ixx="7.05173511405155E-08"
+        ixy="-3.36362650600534E-12"
+        ixz="1.34326072539774E-10"
+        iyy="3.4030039034994E-07"
+        iyz="-4.35148700991177E-22"
+        izz="3.04795843855759E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/deslizador_izq.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/deslizador_izq.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="deslizador_izq_joint"
+    type="prismatic">
+    <origin
+      xyz="0.058 -0.00386 0.031199"
+      rpy="3.1416 0 1.5708" />
+    <parent
+      link="acople_gripper" />
+    <child
+      link="deslizador_izq" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1"
+      upper="0.1"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+    <mimic
+      joint="deslizador_der_joint"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+  <link
+    name="gripper_izq">
+    <inertial>
+      <origin
+        xyz="0.106628516471385 0.00646849082372439 -6.12499999999312E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0278026437083291" />
+      <inertia
+        ixx="3.53548664848271E-06"
+        ixy="-9.07766869525605E-06"
+        ixz="8.36921458829764E-21"
+        iyy="7.95198212423339E-05"
+        iyz="9.46134403700918E-22"
+        izz="8.09512707710093E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/gripper_izq.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper/meshes/gripper_izq.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_izq_joint"
+    type="revolute">
+    <origin
+      xyz="6.25E-05 0.006 0"
+      rpy="1.5708 0.17453 1.5708" />
+    <parent
+      link="deslizador_izq" />
+    <child
+      link="gripper_izq" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-6.28318530718" 
+      upper="6.28318530718"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+    <mimic
+      joint="gripper_der_joint"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+</robot>

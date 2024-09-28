@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="my_robot_controller" type="neural_network_node" name="neural_network_node">
+    
+  </node>
+
+  <node pkg="my_robot_controller" type="gripper_suscriber" name="gripper_suscriber">
+    
+  </node>
+
+  <node pkg="my_robot_controller" type="read_esp.py" name="read_esp">
+    
+  </node>
+
+  <node pkg="camera" type="CameraSubscriber.py" name="CameraSubscriber">
+    
+  </node>
+
+</launch>
