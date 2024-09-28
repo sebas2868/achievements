@@ -1,4 +1,8 @@
 # Videos of some results 
 
-Machine that makes your breakfast: https://youtu.be/kxFbESlkv54 (final project of the microcontroller course. )
+Cereal Os: https://youtu.be/kxFbESlkv54 (Machine that makes your breakfast - final project of the microcontroller course. )
+
+Follow bot: https://youtu.be/OnpzmBJPt8U (low cost robot with detection and tracking capabilities)
+
+
 
