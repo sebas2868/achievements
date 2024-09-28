@@ -1,5 +1,4 @@
 # Videos of some results 
 
-## Machine that makes your breakfast
-### final project of the microcontroller course. #
-https://youtu.be/kxFbESlkv54
+Machine that makes your breakfast: https://youtu.be/kxFbESlkv54 (final project of the microcontroller course. )
+
