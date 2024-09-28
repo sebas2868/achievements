@@ -1,2 +1,8 @@
+# Videos of some results 
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/https://youtu.be/OnpzmBJPt8U?si=wEkr4tmNhXH_YDZG/0.jpg)](https://www.youtube.com/watch?v=https://youtu.be/OnpzmBJPt8U?si=wEkr4tmNhXH_YDZG)
+Cereal Os: https://youtu.be/kxFbESlkv54 (Machine that makes your breakfast - final project of the microcontroller course. )
+
+Follow bot: https://youtu.be/OnpzmBJPt8U (low cost robot with detection and tracking capabilities)
+
+Dog bot: https://youtu.be/UklBAXG-W0s (bio-inspired neural network robot for detection, tracking and trapping)
+
