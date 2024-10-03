@@ -1,0 +1,177 @@
+#include <ard
+#include <i2c_module.h>
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
+#include <Arduino_FreeRTOS.h>
+#include <AccelStepper.h>
+#include <Servo.h>
+
+// Instanciar la clase con la dirección del TCA9548A
+i2c_module sensorModule(0x70);
+float scara_values[5]; // {theta1, z, theta2, phi, servo_angle}
+
+// Definición de pines para los motores y el servo
+#define X_STEP_PIN 2
+#define X_DIR_PIN 5
+#define Y_STEP_PIN 3
+#define Y_DIR_PIN 6
+#define Z_STEP_PIN 4
+#define Z_DIR_PIN 7
+#define A_STEP_PIN 12
+#define A_DIR_PIN 13
+#define SERVO_PIN 22 // Pin para el servo
+
+// Definir límites de posición de los ejes
+#define X_MIN_POSITION 0
+#define X_MAX_POSITION 10000
+#define Y_MIN_POSITION 0
+#define Y_MAX_POSITION 6000
+#define Z_MIN_POSITION 0
+#define Z_MAX_POSITION 6000
+#define A_MIN_POSITION 0
+#define A_MAX_POSITION 10000
+
+// Factores de conversión de grados a pasos
+#define X_STEPS_PER_DEGREE 14
+#define Y_STEPS_PER_DEGREE 10.6
+#define Z_STEPS_PER_DEGREE 3.2
+#define A_STEPS_PER_DEGREE 43.2
+
+// Pines de finales de carrera
+#define f1 32 // Base
+#define f2 40 // Elevador
+#define f3 36 // Codo
+#define f4 34 // Gripper
+
+#define rele 41
+#define led 24
+
+// Variables para manejar el estado del botón
+volatile bool interruptFlag = false;
+volatile unsigned long last_time = 0;
+int boton = 1;
+
+// Instanciar los objetos AccelStepper para los motores
+AccelStepper stepperX(AccelStepper::DRIVER, X_STEP_PIN, X_DIR_PIN);
+AccelStepper stepperY(AccelStepper::DRIVER, Y_STEP_PIN, Y_DIR_PIN);
+AccelStepper stepperZ(AccelStepper::DRIVER, Z_STEP_PIN, Z_DIR_PIN);
+AccelStepper stepperA(AccelStepper::DRIVER, A_STEP_PIN, A_DIR_PIN);
+
+Servo myServo; // Objeto para el servo
+
+// Declaración de tareas
+void Task_finales_carrera(void *pvParameters);
+void Task_envio_serial(void *pvParameters);
+void Task_move_motores(void *pvParameters);
+void Task_handle_interrupt(void *pvParameters);
+
+void setup() {
+  Serial.begin(115200);
+  sensorModule.begin();  // Inicializar los sensores
+
+  pinMode(19, INPUT_PULLUP);
+  pinMode(rele, OUTPUT);
+  pinMode(led, OUTPUT);
+  digitalWrite(led, LOW);
+  digitalWrite(rele, LOW);
+
+  // Configuración de los motores
+  stepperX.setMaxSpeed(500);
+  stepperX.setAcceleration(800);
+
+  stepperY.setMaxSpeed(2000);
+  stepperY.setAcceleration(700);
+
+  stepperZ.setMaxSpeed(2000);
+  stepperZ.setAcceleration(700);
+
+  stepperA.setMaxSpeed(1000);
+  stepperA.setAcceleration(2500);
+
+  // Habilitar interrupción externa en INT2 (pin 19 en algunos modelos de Arduino)
+  EIMSK = (1 << INT2);  // Habilitar interrupción INT2
+  EICRA = (1 << ISC21); // Interrupción por flanco de bajada
+
+  // Crear las tareas
+  xTaskCreate(Task_move_motores, "motores", 128, NULL, 3, NULL);
+  xTaskCreate(Task_envio_serial, "serial", 128, NULL, 2, NULL);
+  xTaskCreate(Task_handle_interrupt, "handleInterrupt", 128, NULL, 1, NULL);
+
+  sei();  // Habilitar interrupciones globales
+}
+
+void Task_move_motores(void *pvParameters __attribute__((unused))) {
+  for (;;) {
+    long xSteps = scara_values[0] * X_STEPS_PER_DEGREE;
+    long ySteps = scara_values[1] * Y_STEPS_PER_DEGREE;
+    long zSteps = scara_values[2] * Z_STEPS_PER_DEGREE;
+    long aSteps = scara_values[3] * A_STEPS_PER_DEGREE;
+    
+    // Mover los motores a la posición objetivo
+    myServo.write(scara_values[4]);
+    stepperX.moveTo(xSteps);
+    stepperY.moveTo(ySteps);
+    stepperZ.moveTo(zSteps);
+    stepperA.moveTo(aSteps);
+    
+    stepperX.run();
+    stepperY.run();
+    stepperZ.run();
+    stepperA.run();
+
+    vTaskDelay(80);  // Esperar 80ms antes de la próxima ejecución
+  }
+}
+
+void Task_envio_serial(void *pvParameters __attribute__((unused))) {
+  for (;;) {
+    if (Serial.available() == sizeof(float) * 5) {
+      float valores[5];
+      Serial.readBytes((char *)valores, sizeof(valores));
+      for (int i = 0; i < 5; i++) {
+        scara_values[i] = valores[i];
+      }
+    }
+    vTaskDelay(300);  // Esperar 300ms antes de la próxima lectura
+  }
+}
+
+// Tarea que maneja el evento de interrupción
+void Task_handle_interrupt(void *pvParameters __attribute__((unused))) {
+  for (;;) {
+    // Esperar a que la ISR notifique sobre la interrupción
+    ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+
+    // Procesar el evento de la interrupción
+    if (interruptFlag) {
+      interruptFlag = false; // Resetear la bandera de interrupción
+
+      if (boton == 0) {
+        boton = 1;
+        digitalWrite(led, LOW);
+        digitalWrite(rele, LOW);
+      } else {
+        boton = 0;
+        digitalWrite(led, HIGH);
+        digitalWrite(rele, HIGH);
+      }
+    }
+  }
+}
+
+// ISR para la interrupción externa
+ISR(INT2_vect) {
+  if (millis() - last_time > 200) {  // Implementación de debounce
+    interruptFlag = true;  // Señalizar que ocurrió una interrupción
+    last_time = millis();
+
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    vTaskNotifyGiveFromISR(NULL, &xHigherPriorityTaskWoken);
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);  // Cambiar contexto si es necesario
+  }
+}
+
+void loop() {
+  // El loop principal está vacío ya que FreeRTOS maneja las tareas
+}

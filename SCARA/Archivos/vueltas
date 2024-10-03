@@ -1,0 +1,4 @@
+vueltas1 = np.floor(q[0]/(2*np.pi))
+q1 = q[0] - 2*vueltas1*np.pi
+vueltas2 = np.floor(q[2]/(2*np.pi))
+q2 = q[2] - 2*vueltas2*np.pi
