@@ -6,6 +6,8 @@ another to deposit the milk and finally one to deposit the spoon, the whole proc
 Dog bot: Implementation of a bio network inspired by a robot with differential dynamics, with the implementation of a gripper and camera vision, 
 for the detection, capture and return, in this case of a red ball.
 
+Follow_bot: A low-cost robot designed for target detection and tracking, utilizing a smartphone camera for object recognition. The camera streams video via an IP address, which is then processed by a Python script using YOLOv8 for object detection. The robot's control system is powered by an ESP32, which receives speed commands through the MQTT protocol. It features PID control for precise movement, enabled by photo encoders for feedback.
+
 # Videos of some results 
 
 Cereal Os: https://youtu.be/kxFbESlkv54 (Machine that makes your breakfast - final project of the microcontroller course. )
