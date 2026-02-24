@@ -1,0 +1,3 @@
+/home/atom/Desktop/atom_51_new_3/Control_PS4/build/CMakeFiles/ps4_control.dir
+/home/atom/Desktop/atom_51_new_3/Control_PS4/build/CMakeFiles/edit_cache.dir
+/home/atom/Desktop/atom_51_new_3/Control_PS4/build/CMakeFiles/rebuild_cache.dir

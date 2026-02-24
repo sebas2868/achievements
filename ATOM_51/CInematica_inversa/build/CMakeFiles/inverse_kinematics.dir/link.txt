@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/inverse_kinematics.dir/link.d CMakeFiles/inverse_kinematics.dir/src/main.cpp.o -o inverse_kinematics  -Wl,-rpath,/usr/local/lib libkinematics_lib.a -luv -lpthread -ldl -lrt -lpthread /usr/local/lib/libwiringPi.so -ldl -lrt

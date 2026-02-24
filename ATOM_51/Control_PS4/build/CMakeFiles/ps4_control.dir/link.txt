@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/ps4_control.dir/link.d CMakeFiles/ps4_control.dir/src/main.cpp.o -o ps4_control

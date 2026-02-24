@@ -1,0 +1,3 @@
+/home/atom/Desktop/atom_51_new_3/imu_cpp/build/CMakeFiles/imu_reader.dir
+/home/atom/Desktop/atom_51_new_3/imu_cpp/build/CMakeFiles/edit_cache.dir
+/home/atom/Desktop/atom_51_new_3/imu_cpp/build/CMakeFiles/rebuild_cache.dir

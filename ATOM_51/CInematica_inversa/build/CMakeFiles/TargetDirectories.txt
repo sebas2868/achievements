@@ -1,0 +1,4 @@
+/home/atom/Desktop/atom_51_new_3/CInematica_inversa/build/CMakeFiles/kinematics_lib.dir
+/home/atom/Desktop/atom_51_new_3/CInematica_inversa/build/CMakeFiles/inverse_kinematics.dir
+/home/atom/Desktop/atom_51_new_3/CInematica_inversa/build/CMakeFiles/edit_cache.dir
+/home/atom/Desktop/atom_51_new_3/CInematica_inversa/build/CMakeFiles/rebuild_cache.dir

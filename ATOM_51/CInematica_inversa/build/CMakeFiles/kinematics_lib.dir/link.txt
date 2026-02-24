@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkinematics_lib.a CMakeFiles/kinematics_lib.dir/src/kinematics.cpp.o CMakeFiles/kinematics_lib.dir/src/BusServoControl.cpp.o
+/usr/bin/ranlib libkinematics_lib.a

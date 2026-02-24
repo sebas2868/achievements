@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/imu_reader.dir/link.d CMakeFiles/imu_reader.dir/src/main.cpp.o -o imu_reader  -lpthread -lm
