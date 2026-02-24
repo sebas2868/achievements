@@ -10,7 +10,11 @@ Follow_bot: A low-cost robot designed for target detection and tracking, utilizi
 
 MLP: Implementation of back propagation with adam optimization for multilayer network training without the use of specialized libraries 
 
-PETER: Robot with the ability to change shape and locomotion mode between quadruped, omnidirectional and bidirectional.  In the video you can see an implementation of a biologically inspired network for the change of shape of the robot according to visual stimulus.  
+Mini - PETER: Robot with the ability to change shape and locomotion mode between quadruped, omnidirectional and bidirectional.  In the video you can see an implementation of a biologically inspired network for the change of shape of the robot according to visual stimulus.  
+
+PETER:
+
+Atom-51: ATOM-51 is a high-performance quadrupedal robotic platform powered by a Raspberry Pi 4. The system leverages advanced Inverse Kinematics (IK) to achieve precise and fluid gait control. Its perception stack features a Lidar sensor for terrain mapping and obstacle detection, alongside a camera for Computer Vision tasks. ATOM-51 is also equipped with integrated speakers, enabling Natural Language Interaction and real-time voice feedback
 
 # Videos of some results 
 
@@ -20,4 +24,6 @@ Follow bot: https://youtu.be/OnpzmBJPt8U (low cost robot with detection and trac
 
 Dog bot: https://youtu.be/UklBAXG-W0s (bio-inspired neural network robot for detection, tracking and trapping)
 
-PETER: https://youtu.be/P6VIn07g2xw
+Mini - PETER: https://youtu.be/P6VIn07g2xw
+
+ATOM-51: Talking: https://youtu.be/Jbs2VIZ2XN4; Walking: https://youtu.be/owiOSyzdKmA
